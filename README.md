@@ -223,10 +223,12 @@ print("NumPy completes the operation", (total_time - total_time_with_np), "secon
     NumPy completes the operation 0.07027000000000028 seconds faster than a traditional list
 
 
-## Running simulations with NuMy
+## Simulations with NumPy
 
-add 2 sentences
+To conclude this lesson, it is important to mention that NumPy is a very useful library to perform random sampling. `numpy.random` allows us to  What this means is that, given that we know what a certain population looks like, we can use `numpy.random` to essentially "produce" random samples given the population information.
+
+Don't worry if this doesn't make sense right now. We'll explore this NumPy functionality later on.
 
 ## Summary
 
-In this lesson, we introduced using NumPy to create arrays in Python. NumPy is a library that is very commonly used in Python and especially among data scientists that are dealing with large datasets. We looked at how NumPy can greatly reduce the amount of code we write while keeping our code very clear and concise. Finally we briefly looked at an example of the performance benefits of NumPy compared to a traditional list in Python.
+In this lesson, we introduced using NumPy to create arrays in Python. NumPy is a library that is very commonly used in Python for when performing scientific computing operations. We looked at how NumPy can greatly reduce the amount of code we write while keeping our code very clear and concise. Next, we briefly looked at an example of the performance benefits of NumPy compared to a traditional list in Python. Finally, we touched upon NumPy's random number generating capabilities.
