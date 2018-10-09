@@ -8,9 +8,11 @@ In the previous sections, you've learned about some packages like *Pandas* and *
 An important note: *Pandas* was actually built on top of *NumPy*! So many of the functionalities that *NumPy* has, are also part of *Pandas*. It is still important to cover *NumPy* separately as *NumPy* Arrays are very important building blocks in many data science applications!
 
 ## Objectives
-* How to get started with NumPy
+You will be able to: 
+
+* Know how to get started with NumPy
 * Understand how and when to use a NumPy Array
-* Performance Benefits of a NumPy Array
+* Understand the performance benefits of a NumPy Array
 
 ## Getting Started With NumPy
 
