@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In the previous sections, you've learned about some packages like *Pandas* and *matplotlib* that make your life as a data scientist mucheasier. In this section, we'll introduce another Python library, *NumPy*. Why? Besides being ubiquitous to data science, NumPy also provides us with blistering fast and efficient list-like data types called N-Dimensional Arrays or **ndarray**s or more simply arrays. This list-like data type is effectively a lighter weight version of a Python **list**, as it uses less of your computer's memory, which makes it more efficient, especially when dealing with large datasets. Don't worry if that seems a little vague. We will take a closer look at NumPy and how its arrays work in this lesson.
+In this section, we'll take a more formal look at another Python library, *NumPy*. Besides being ubiquitous to data science, NumPy also provides us with blistering fast and efficient list-like data types called N-Dimensional Arrays or **ndarray**s or more simply arrays. This list-like data type is effectively a lighter weight version of a Python **list**, as it uses less of your computer's memory, which makes it more efficient, especially when dealing with large datasets. Don't worry if that seems a little vague. We will take a closer look at NumPy and how its arrays work in this lesson.
 
 An important note: *Pandas* was actually built on top of *NumPy*! So many of the functionalities that *NumPy* has, are also part of *Pandas*. It is still important to cover *NumPy* separately as *NumPy* Arrays are very important building blocks in many data science applications!
 
