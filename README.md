@@ -36,7 +36,7 @@ print("You know it is a NumPy Array because:", type(numpy_arr))
 
     Here is a NumPy Array: [1 2 3 4]
     You know it is a NumPy Array because: <class 'numpy.ndarray'>
-
+    
 
 While we'll focus on one-dimensional arrays in this lecture, it is important to mention that NumPy is very famous for its multi-dimensional Arrays, like:
 
@@ -78,7 +78,7 @@ list_of_integers + 3
 
     TypeError                                 Traceback (most recent call last)
 
-    <ipython-input-5-39298e537b96> in <module>()
+    <ipython-input-5-39298e537b96> in <module>
           1 # add 3 to each element
     ----> 2 list_of_integers + 3
     
@@ -94,13 +94,6 @@ You'll see that this doesn't work, because Python expects a list-like object. An
 list_of_integers + [3]
 ```
 
-
-
-
-    [0, 1, 2, 3, 3]
-
-
-
 Let's see what happens if we convert our list to a *NumPy* array!
 
 
@@ -111,14 +104,7 @@ array_of_integers = np.array(list_of_integers)
 array_of_integers + 3
 ```
 
-
-
-
-    array([3, 4, 5, 6])
-
-
-
-It worked this time! So what actually happens behind the scene here, is referred to as *broadcasting*. The term broadcasting describes how numpy treats objects with different shapes during arithmetic operations: So, what this means in this context is that the value "3" when performing the addition is actually being *reused* thoughout the entire array. This might seem trivial, but lists don't support this behavior!
+It worked this time! So what actually happens behind the scene here, is referred to as *broadcasting*. The term broadcasting describes how numpy treats objects with different shapes during arithmetic operations: So, what this means in this context is that the value "3" when performing the addition is actually being *reused* throughout the entire array. This might seem trivial, but lists don't support this behavior!
 
 So, we see that NumPy can operate on each element just by giving an operation to a NumPy array. But NumPy can *also* use two arrays to operate on one another. This is useful in cases where you have two sets of data that are indirectly related, but commonly used to create statistics like population and area of a given city or state, which would give us population density (i.e. nyc_population_density = nyc_population / nyc_square_miles )
  
@@ -132,14 +118,11 @@ areas_of_each_room = lenghts_of_each_room * widths_of_each_room
 print ("Here is an array with the square footages for each room:", areas_of_each_room)
 ```
 
-    Here is an array with the square footages for each room: [130 180 320  20]
+### A Temperature Conversion Example
 
+Now, let's imagine we have a list of temperatures that represent the average high temperatures for each month of the year in NYC. Currently, this list has all the temperatures in fahrenheit. However, since NYC has such a large international presence and population, it would be great to also have these numbers in celsius as well. Without NumPy, we would have to access each element individually, get its value, convert the value to celcius, and add the new value to a new array. With NumPy, we can just multiply each element by the factor we need to convert fahrenheit to celcius.
 
-### A temperatures example
-
-Now, let's imagine we have a list of temperartures that represent the average high temperatures for each month of the year in NYC. Currently, this list has all the temperatures in farenheight. However, since NYC has such a large international presence and population, it would be great to also have these numbers in celsius as well. Without NumPy, we would have to access each element individually, get its value, convert the value to celcius, and add the new value to a new array. With NumPy, we can just multiply each element by the factor we need to convert farenheight to celcius.
-
-The formula for converting farenheight to celsius is below: 
+The formula for converting fahrenheit to celsius is below: 
 ```
 T(°C) = (T(°F) - 32) × 5/9
 ```
@@ -147,7 +130,7 @@ Let's see an example of how we would perform this conversion with a python list 
 
 
 ```python
-# average temps in NYC from January -> December (in Farenheight)
+# average temps in NYC from January -> December (in fahrenheit)
 nyc_avg_temps_f = [39, 42, 50, 62, 72, 80, 85, 84, 76, 65, 54, 44]
 
 # ----- without NumPy -----
@@ -175,20 +158,15 @@ print("1. Without NumPy:", nyc_avg_temps_c)
 print("2. WITH NumPy:", np_nyc_avg_temps_c)
 ```
 
-    1. Without NumPy: [3.8888888888888893, 5.555555555555555, 10.0, 16.666666666666668, 22.22222222222222, 26.666666666666668, 29.444444444444446, 28.88888888888889, 24.444444444444446, 18.333333333333336, 12.222222222222223, 6.666666666666667]
-    2. WITH NumPy: [ 3.88888889  5.55555556 10.         16.66666667 22.22222222 26.66666667
-     29.44444444 28.88888889 24.44444444 18.33333333 12.22222222  6.66666667]
+Woah! Okay, we can see that in the first example, without NumPy, it took us **thirteen (13)** lines of code to accomplish the conversion from fahrenheit to celsius. With a NumPy array, we condensed that operation to **two (2)** lines of code. 
 
-
-Woah! Okay, we can see that in the first example, without NumPy, it took us **thirteen (13)** lines of code to accomplish the conversion from farenheight to celsius. With a NumPy array, we condensed that operation to **two (2)** lines of code. 
-
-Let's break this down. Essentially the problem was to operate on each number in the list of NYC average monthly temperatures. The operation was to convert the number in farenheight to celsius. To do this, without NumPy, we must access each value from the nyc_avg_temps_f list separately, use the value to convert it to celsius, and assign the converted value to the nyc_avg_temps_c list. *With* NumPy, we just need to use the variable name for the list, as if it were a single element, within the operation. NumPy then quickly performs the operation on each element and returns a **new** array.
+Let's break this down. Essentially the problem was to operate on each number in the list of NYC average monthly temperatures. The operation was to convert the number in fahrenheit to celsius. To do this, without NumPy, we must access each value from the `nyc_avg_temps_f` list separately, use the value to convert it to celsius, and assign the converted value to the `nyc_avg_temps_c` list. *With* NumPy, we just need to use the variable name for the list, as if it were a single element, within the operation. NumPy then quickly performs the operation on each element and returns a **new** array.
 
 Don't worry too much about how this is implemented behind the scenes. The key takeaway is that when we have large datasets that we want to operate on, NumPy can usually greatly simplify our code as well as make it more performant, which we will learn about later!
 
 ## Performance Benefits of a NumPy Array
 
-Another benefit to NumPy arrays, as we mentioned earlier, is that they use less memory and are therefore make it easier for us to perform operations on them. However, this performance benefit is only really noticed when dealing with very large datasets. So, for now, the performace benefits of NumPy are purely educational, and we do not need to worry about them just yet. 
+Another benefit to NumPy arrays, as we mentioned earlier, is that they use less memory and are therefore make it easier for us to perform operations on them. However, this performance benefit is only really noticed when dealing with very large datasets. So, for now, the performance benefits of NumPy are purely educational, and we do not need to worry about them just yet. 
 
 Let's take a look at an example. We will perform a simple operation two sets of data. One is a regular list and the other is a NumPy array. Don't worry about the code. We are only focusing on the time difference between how long it takes us to perform the same operation with and without NumPy.
 
@@ -219,11 +197,6 @@ print("Time it takes to add 1 to each element in a list withOUT NumPy:", total_t
 print("Time it takes to add 1 to each element in a list WITH NumPy:", total_time_with_np)
 print("NumPy completes the operation", (total_time - total_time_with_np), "seconds faster than a traditional list")
 ```
-
-    Time it takes to add 1 to each element in a list withOUT NumPy: 0.07422400000000007
-    Time it takes to add 1 to each element in a list WITH NumPy: 0.003953999999999791
-    NumPy completes the operation 0.07027000000000028 seconds faster than a traditional list
-
 
 ## Simulations with NumPy
 
