@@ -36,7 +36,7 @@ print("You know it is a NumPy Array because:", type(numpy_arr))
 
     Here is a NumPy Array: [1 2 3 4]
     You know it is a NumPy Array because: <class 'numpy.ndarray'>
-    
+
 
 While we'll focus on one-dimensional arrays in this lecture, it is important to mention that NumPy is very famous for its multi-dimensional Arrays, like:
 
@@ -206,4 +206,4 @@ Don't worry if this doesn't make sense right now. We'll explore this NumPy funct
 
 ## Summary
 
-In this lesson, we introduced using NumPy to create arrays in Python. NumPy is a library that is very commonly used in Python for when performing scientific computing operations. We looked at how NumPy can greatly reduce the amount of code we write while keeping our code very clear and concise. Next, we briefly looked at an example of the performance benefits of NumPy compared to a traditional list in Python. Finally, we touched upon NumPy's random number generating capabilities.
+In this lesson, we introduced using NumPy to create arrays in Python. NumPy is a library that is very commonly used in Python when performing scientific computing operations. We looked at how NumPy can greatly reduce the amount of code we write while keeping our code very clear and concise. Next, we briefly looked at an example of the performance benefits of NumPy compared to a traditional list in Python. Finally, we touched upon NumPy's random number generating capabilities.
