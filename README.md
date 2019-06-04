@@ -104,7 +104,7 @@ array_of_integers = np.array(list_of_integers)
 array_of_integers + 3
 ```
 
-It worked this time! So what actually happens behind the scene here, is referred to as *broadcasting*. The term broadcasting describes how numpy treats objects with different shapes during arithmetic operations: So, what this means in this context is that the value "3" when performing the addition is actually being *reused* throughout the entire array. This might seem trivial, but lists don't support this behavior!
+It worked this time! So what actually happens behind the scene here, is referred to as *broadcasting*. The term broadcasting describes how Numpy treats objects with different shapes during arithmetic operations: So, what this means in this context is that the value "3" when performing the addition is actually being *reused* throughout the entire array. This might seem trivial, but lists don't support this behavior!
 
 So, we see that NumPy can operate on each element just by giving an operation to a NumPy array. But NumPy can *also* use two arrays to operate on one another. This is useful in cases where you have two sets of data that are indirectly related, but commonly used to create statistics like population and area of a given city or state, which would give us population density (i.e. nyc_population_density = nyc_population / nyc_square_miles )
  
@@ -120,9 +120,9 @@ print ("Here is an array with the square footages for each room:", areas_of_each
 
 ### A Temperature Conversion Example
 
-Now, let's imagine we have a list of temperatures that represent the average high temperatures for each month of the year in NYC. Currently, this list has all the temperatures in fahrenheit. However, since NYC has such a large international presence and population, it would be great to also have these numbers in celsius as well. Without NumPy, we would have to access each element individually, get its value, convert the value to celcius, and add the new value to a new array. With NumPy, we can just multiply each element by the factor we need to convert fahrenheit to celcius.
+Now, let's imagine we have a list of temperatures that represent the average high temperatures for each month of the year in NYC. Currently, this list has all the temperatures in Fahrenheit. However, since NYC has such a large international presence and population, it would be great to also have these numbers in Celsius as well. Without NumPy, we would have to access each element individually, get its value, convert the value to Celsius, and add the new value to a new array. With NumPy, we can just multiply each element by the factor we need to convert Fahrenheit to Celsius.
 
-The formula for converting fahrenheit to celsius is below: 
+The formula for converting Fahrenheit to Celsius is below: 
 ```
 T(°C) = (T(°F) - 32) × 5/9
 ```
@@ -158,9 +158,9 @@ print("1. Without NumPy:", nyc_avg_temps_c)
 print("2. WITH NumPy:", np_nyc_avg_temps_c)
 ```
 
-Woah! Okay, we can see that in the first example, without NumPy, it took us **thirteen (13)** lines of code to accomplish the conversion from fahrenheit to celsius. With a NumPy array, we condensed that operation to **two (2)** lines of code. 
+Woah! Okay, we can see that in the first example, without NumPy, it took us **thirteen (13)** lines of code to accomplish the conversion from Fahrenheit to Celsius. With a NumPy array, we condensed that operation to **two (2)** lines of code. 
 
-Let's break this down. Essentially the problem was to operate on each number in the list of NYC average monthly temperatures. The operation was to convert the number in fahrenheit to celsius. To do this, without NumPy, we must access each value from the `nyc_avg_temps_f` list separately, use the value to convert it to celsius, and assign the converted value to the `nyc_avg_temps_c` list. *With* NumPy, we just need to use the variable name for the list, as if it were a single element, within the operation. NumPy then quickly performs the operation on each element and returns a **new** array.
+Let's break this down. Essentially the problem was to operate on each number in the list of NYC average monthly temperatures. The operation was to convert the number in Fahrenheit to Celsius. To do this, without NumPy, we must access each value from the `nyc_avg_temps_f` list separately, use the value to convert it to Celsius, and assign the converted value to the `nyc_avg_temps_c` list. *With* NumPy, we just need to use the variable name for the list, as if it were a single element, within the operation. NumPy then quickly performs the operation on each element and returns a **new** array.
 
 Don't worry too much about how this is implemented behind the scenes. The key takeaway is that when we have large datasets that we want to operate on, NumPy can usually greatly simplify our code as well as make it more performant, which we will learn about later!
 
