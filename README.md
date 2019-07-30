@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In this section, we'll take a more formal look at another Python library, *NumPy*. Besides being ubiquitous to data science, NumPy also provides us with blistering fast and efficient list-like data types called N-Dimensional Arrays or **ndarray**s or more simply arrays. This list-like data type is effectively a lighter weight version of a Python **list**, as it uses less of your computer's memory, which makes it more efficient, especially when dealing with large datasets. Don't worry if that seems a little vague. We will take a closer look at NumPy and how its arrays work in this lesson.
+In this section, we'll take a more formal look at another Python library, *NumPy*. Besides being ubiquitous in data science, NumPy also provides us with blistering fast and efficient list-like data types called N-Dimensional Arrays or **ndarray**s or more simply arrays. This list-like data type is effectively a lighter weight version of a Python **list**, as it uses less of your computer's memory, which makes it more efficient, especially when dealing with large datasets. Don't worry if that seems a little vague. We will take a closer look at NumPy and how its arrays work in this lesson.
 
 An important note: *Pandas* was actually built on top of *NumPy*! So many of the functionalities that *NumPy* has, are also part of *Pandas*. It is still important to cover *NumPy* separately as *NumPy* Arrays are very important building blocks in many data science applications!
 
@@ -60,7 +60,7 @@ The benefits of using NumPy here will become more obvious in our math-heavier li
 
 So why would you want to use a NumPy array instead of a list? Because compared to a list, NumPy makes it very easy to perform array operations, like adding, multiplying, and otherwise operating on each element of the collection. Let's look at some examples.
 
-First, let's take a look at a simple example. We have a list of integers, and we want to add 3 to each element in the list. How do we do this? With *NumPy*, we can just use the name of the list variable and the operation we want to perform (adding 3).
+First, let's take a look at a simple example. We have a list of integers, and we want to add 3 to each element in the list. One might try the following:
 
 
 ```python
@@ -78,7 +78,7 @@ list_of_integers + 3
 
     TypeError                                 Traceback (most recent call last)
 
-    <ipython-input-5-39298e537b96> in <module>
+    <ipython-input-5-39298e537b96> in <module>()
           1 # add 3 to each element
     ----> 2 list_of_integers + 3
     
@@ -104,11 +104,11 @@ array_of_integers = np.array(list_of_integers)
 array_of_integers + 3
 ```
 
-It worked this time! So what actually happens behind the scene here, is referred to as *broadcasting*. The term broadcasting describes how Numpy treats objects with different shapes during arithmetic operations: So, what this means in this context is that the value "3" when performing the addition is actually being *reused* throughout the entire array. This might seem trivial, but lists don't support this behavior!
+It worked this time! So what actually happens behind the scenes here, is referred to as *broadcasting*. The term broadcasting describes how NumPy treats objects with different shapes during arithmetic operations: So, what this means in this context is that the value "3" when performing the addition is actually being *reused* throughout the entire array. This might seem trivial, but lists don't support this behavior!
 
 So, we see that NumPy can operate on each element just by giving an operation to a NumPy array. But NumPy can *also* use two arrays to operate on one another. This is useful in cases where you have two sets of data that are indirectly related, but commonly used to create statistics like population and area of a given city or state, which would give us population density (i.e. nyc_population_density = nyc_population / nyc_square_miles )
  
-What if we had a friend who is trying to figure out the square footage of their apartment. They've measured our the lengths of each room and put those into a list for us, and then made another list for the widths of each room. Instead of trying to figure out this bizarre way our friend grouped their data, let's use NumPy to create a list with the area in square feet for each room.
+What if we had a friend who is trying to figure out the square footage of their apartment. They've measured out the lengths of each room and put those into a list for us, and then made another list for the widths of each room. Instead of trying to figure out this bizarre way our friend grouped their data, let's use NumPy to create a list with the area in square feet for each room.
 
 
 ```python
@@ -168,7 +168,7 @@ Don't worry too much about how this is implemented behind the scenes. The key ta
 
 Another benefit to NumPy arrays, as we mentioned earlier, is that they use less memory and are therefore make it easier for us to perform operations on them. However, this performance benefit is only really noticed when dealing with very large datasets. So, for now, the performance benefits of NumPy are purely educational, and we do not need to worry about them just yet. 
 
-Let's take a look at an example. We will perform a simple operation two sets of data. One is a regular list and the other is a NumPy array. Don't worry about the code. We are only focusing on the time difference between how long it takes us to perform the same operation with and without NumPy.
+Let's take a look at an example. We will perform a simple operation on two sets of data. One is a regular list and the other is a NumPy array. Don't worry about the code. We are only focusing on the time difference between how long it takes us to perform the same operation with and without NumPy.
 
 
 ```python
@@ -200,7 +200,7 @@ print("NumPy completes the operation", (total_time - total_time_with_np), "secon
 
 ## Simulations with NumPy
 
-To conclude this lesson, it is important to mention that NumPy is a very useful library to perform random sampling. `numpy.random` allows us to  What this means is that, given that we know what a certain population looks like, we can use `numpy.random` to essentially "produce" random samples given the population information.
+To conclude this lesson, it is important to mention that NumPy is a very useful library to perform random sampling. `numpy.random`. What this means is that, given that we know what a certain population looks like, we can use `numpy.random` to essentially "produce" random samples given the population information.
 
 Don't worry if this doesn't make sense right now. We'll explore this NumPy functionality later on.
 
