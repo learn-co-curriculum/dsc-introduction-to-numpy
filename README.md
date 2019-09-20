@@ -3,22 +3,22 @@
 
 ## Introduction
 
-In this section, we'll take a more formal look at another Python library, *NumPy*. Besides being ubiquitous in data science, NumPy also provides us with blistering fast and efficient list-like data types called N-Dimensional Arrays or **ndarray**s or more simply arrays. This list-like data type is effectively a lighter weight version of a Python **list**, as it uses less of your computer's memory, which makes it more efficient, especially when dealing with large datasets. Don't worry if that seems a little vague. We will take a closer look at NumPy and how its arrays work in this lesson.
+In this section, we'll take a more formal look at *NumPy*. Besides being ubiquitous in Data Science, NumPy also provides us with blistering fast and efficient list-like data types called N-Dimensional Arrays or **ndarray**s or more simply arrays. This list-like data type is effectively a lighter weight version of a Python **list**, as it uses less of your computer's memory, which makes it more efficient, especially when dealing with large datasets. Don't worry if that seems a little vague. We will take a closer look at NumPy and how its arrays work in this lesson.
 
-An important note: *Pandas* was actually built on top of *NumPy*! So many of the functionalities that *NumPy* has, are also part of *Pandas*. It is still important to cover *NumPy* separately as *NumPy* Arrays are very important building blocks in many data science applications!
+An important note: *Pandas* was actually built on top of *NumPy*! So many of the functionalities that *NumPy* has, are also part of *Pandas*. It is still important to cover *NumPy* separately as *NumPy* arrays are very important building blocks in many Data Science applications!
 
 ## Objectives
 You will be able to: 
 
-* Know how to get started with NumPy
-* Understand how and when to use a NumPy Array
-* Understand the performance benefits of a NumPy Array
+* Know how to get started with NumPy 
+* Understand how and when to use a NumPy array 
+* Understand the performance benefits of a NumPy array 
 
 ## Getting Started With NumPy
 
 Just like with any other library, we need to first install the library with a package manager like `pip`. We have already installed this library in the background, so, no need to worry about this step. Next, we need to import the dependency into our code. 
 
-The conventional method to import NumPy is by aliasing it as `np`, just like this:
+The conventional method to import NumPy is by aliasing it as `np`, like this:
 
 
 ```python
@@ -30,15 +30,15 @@ That was easy! Now we can use any functions from the NumPy library by simply typ
 
 ```python
 numpy_arr = np.array([1,2,3,4])
-print("Here is a NumPy Array:", numpy_arr)
-print("You know it is a NumPy Array because:", type(numpy_arr))
+print("Here is a NumPy array:", numpy_arr)
+print("You know it is a NumPy array because its type is:", type(numpy_arr))
 ```
 
-    Here is a NumPy Array: [1 2 3 4]
-    You know it is a NumPy Array because: <class 'numpy.ndarray'>
+    Here is a NumPy array: [1 2 3 4]
+    You know it is a NumPy array because its type is: <class 'numpy.ndarray'>
 
 
-While we'll focus on one-dimensional arrays in this lecture, it is important to mention that NumPy is very famous for its multi-dimensional Arrays, like:
+While we'll focus on one-dimensional arrays in this lecture, it is important to mention that NumPy is very famous for its multi-dimensional arrays, like:
 
 
 ```python
@@ -78,7 +78,7 @@ list_of_integers + 3
 
     TypeError                                 Traceback (most recent call last)
 
-    <ipython-input-5-39298e537b96> in <module>()
+    <ipython-input-5-39298e537b96> in <module>
           1 # add 3 to each element
     ----> 2 list_of_integers + 3
     
@@ -94,6 +94,13 @@ You'll see that this doesn't work, because Python expects a list-like object. An
 list_of_integers + [3]
 ```
 
+
+
+
+    [0, 1, 2, 3, 3]
+
+
+
 Let's see what happens if we convert our list to a *NumPy* array!
 
 
@@ -103,6 +110,13 @@ array_of_integers = np.array(list_of_integers)
 # add 3
 array_of_integers + 3
 ```
+
+
+
+
+    array([3, 4, 5, 6])
+
+
 
 It worked this time! So what actually happens behind the scenes here, is referred to as *broadcasting*. The term broadcasting describes how NumPy treats objects with different shapes during arithmetic operations: So, what this means in this context is that the value "3" when performing the addition is actually being *reused* throughout the entire array. This might seem trivial, but lists don't support this behavior!
 
@@ -118,15 +132,18 @@ areas_of_each_room = lenghts_of_each_room * widths_of_each_room
 print ("Here is an array with the square footages for each room:", areas_of_each_room)
 ```
 
+    Here is an array with the square footages for each room: [130 180 320  20]
+
+
 ### A Temperature Conversion Example
 
-Now, let's imagine we have a list of temperatures that represent the average high temperatures for each month of the year in NYC. Currently, this list has all the temperatures in Fahrenheit. However, since NYC has such a large international presence and population, it would be great to also have these numbers in Celsius as well. Without NumPy, we would have to access each element individually, get its value, convert the value to Celsius, and add the new value to a new array. With NumPy, we can just multiply each element by the factor we need to convert Fahrenheit to Celsius.
+Now, let's imagine we have a list of temperatures that represent the average high temperatures for each month of the year in NYC. Currently, this list has all the temperatures in Fahrenheit. However, since NYC has such a large international presence and population, it would be great to have these numbers in Celsius as well. Without NumPy, we would have to access each element individually, get its value, convert the value to Celsius, and add the new value to a new array. With NumPy, we can just multiply each element by the factor we need to convert Fahrenheit to Celsius.
 
 The formula for converting Fahrenheit to Celsius is below: 
 ```
 T(°C) = (T(°F) - 32) × 5/9
 ```
-Let's see an example of how we would perform this conversion with a python list and a NumPy Array.
+Let's see an example of how we would perform this conversion with a Python list and a NumPy qrray.
 
 
 ```python
@@ -158,6 +175,11 @@ print("1. Without NumPy:", nyc_avg_temps_c)
 print("2. WITH NumPy:", np_nyc_avg_temps_c)
 ```
 
+    1. Without NumPy: [3.8888888888888893, 5.555555555555555, 10.0, 16.666666666666668, 22.22222222222222, 26.666666666666668, 29.444444444444446, 28.88888888888889, 24.444444444444446, 18.333333333333336, 12.222222222222223, 6.666666666666667]
+    2. WITH NumPy: [ 3.88888889  5.55555556 10.         16.66666667 22.22222222 26.66666667
+     29.44444444 28.88888889 24.44444444 18.33333333 12.22222222  6.66666667]
+
+
 Woah! Okay, we can see that in the first example, without NumPy, it took us **thirteen (13)** lines of code to accomplish the conversion from Fahrenheit to Celsius. With a NumPy array, we condensed that operation to **two (2)** lines of code. 
 
 Let's break this down. Essentially the problem was to operate on each number in the list of NYC average monthly temperatures. The operation was to convert the number in Fahrenheit to Celsius. To do this, without NumPy, we must access each value from the `nyc_avg_temps_f` list separately, use the value to convert it to Celsius, and assign the converted value to the `nyc_avg_temps_c` list. *With* NumPy, we just need to use the variable name for the list, as if it were a single element, within the operation. NumPy then quickly performs the operation on each element and returns a **new** array.
@@ -166,7 +188,7 @@ Don't worry too much about how this is implemented behind the scenes. The key ta
 
 ## Performance Benefits of a NumPy Array
 
-Another benefit to NumPy arrays, as we mentioned earlier, is that they use less memory and are therefore make it easier for us to perform operations on them. However, this performance benefit is only really noticed when dealing with very large datasets. So, for now, the performance benefits of NumPy are purely educational, and we do not need to worry about them just yet. 
+Another benefit to NumPy arrays, as we mentioned earlier, is that they use less memory and therefore make it easier for us to perform operations on them. However, this performance benefit is only really noticed when dealing with very large datasets. So, for now, the performance benefits of NumPy are purely educational, and we do not need to worry about them just yet. 
 
 Let's take a look at an example. We will perform a simple operation on two sets of data. One is a regular list and the other is a NumPy array. Don't worry about the code. We are only focusing on the time difference between how long it takes us to perform the same operation with and without NumPy.
 
@@ -182,25 +204,32 @@ def add_one(list_of_ints):
     return [num + 1 for num in list_of_ints]
 
 
-start_time = time.clock() # time when operation starts
+start_time = time.perf_counter() # time when operation starts
 add_one(huge_list_of_integers) # adds 1 to each number in the list of integers above
-end_time = time.clock() # time when operation finishes
+end_time = time.perf_counter() # time when operation finishes
 total_time = (end_time - start_time) # total time for operation
 
 
-start_time_with_np = time.clock() # time when operation starts
+start_time_with_np = time.perf_counter() # time when operation starts
 huge_np_array_of_integers + 1 # adds 1 to each number in the array of integers
-end_time_with_np = time.clock() # time when operation finishes
+end_time_with_np = time.perf_counter() # time when operation finishes
 total_time_with_np = (end_time_with_np - start_time_with_np) # total time for operation
 
-print("Time it takes to add 1 to each element in a list withOUT NumPy:", total_time)
+print("Time it takes to add 1 to each element in a list WITHOUT NumPy:", total_time)
 print("Time it takes to add 1 to each element in a list WITH NumPy:", total_time_with_np)
-print("NumPy completes the operation", (total_time - total_time_with_np), "seconds faster than a traditional list")
+
+percent_faster = int((((total_time - total_time_with_np)/total_time)*100))
+print("NumPy completes the operation", percent_faster, "% faster than a traditional list")
 ```
+
+    Time it takes to add 1 to each element in a list WITHOUT NumPy: 0.06499373700000177
+    Time it takes to add 1 to each element in a list WITH NumPy: 0.0036749559999975645
+    NumPy completes the operation 94 % faster than a traditional list
+
 
 ## Simulations with NumPy
 
-To conclude this lesson, it is important to mention that NumPy is a very useful library to perform random sampling. `numpy.random`. What this means is that, given that we know what a certain population looks like, we can use `numpy.random` to essentially "produce" random samples given the population information.
+To conclude this lesson, it is important to mention that NumPy is a very useful library to perform random sampling. What this means is that, given that we know what a certain population looks like, we can use `numpy.random` to essentially "produce" random samples given the population information.
 
 Don't worry if this doesn't make sense right now. We'll explore this NumPy functionality later on.
 
