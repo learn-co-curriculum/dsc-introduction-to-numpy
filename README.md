@@ -143,7 +143,7 @@ The formula for converting Fahrenheit to Celsius is below:
 ```
 T(°C) = (T(°F) - 32) × 5/9
 ```
-Let's see an example of how we would perform this conversion with a Python list and a NumPy qrray.
+Let's see an example of how we would perform this conversion with a Python list and a NumPy array.
 
 
 ```python
