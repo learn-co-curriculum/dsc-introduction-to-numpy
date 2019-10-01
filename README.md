@@ -3,16 +3,16 @@
 
 ## Introduction
 
-In this section, we'll take a more formal look at *NumPy*. Besides being ubiquitous in Data Science, NumPy also provides us with blistering fast and efficient list-like data types called N-Dimensional Arrays or **ndarray**s or more simply arrays. This list-like data type is effectively a lighter weight version of a Python **list**, as it uses less of your computer's memory, which makes it more efficient, especially when dealing with large datasets. Don't worry if that seems a little vague. We will take a closer look at NumPy and how its arrays work in this lesson.
+In this section, we'll take a more formal look at *NumPy*. Besides being ubiquitous in Data Science, NumPy also provides us with blistering fast and efficient, list-like, data types called N-Dimensional Arrays or **ndarrays** or more simply arrays. This list-like data type is effectively a lighter weight version of a Python **list**, as it uses less of your computer's memory, which makes it more efficient, especially when dealing with large datasets. Don't worry if that seems a little vague. We will take a closer look at NumPy and how its arrays work in this lesson.
 
 An important note: *Pandas* was actually built on top of *NumPy*! So many of the functionalities that *NumPy* has, are also part of *Pandas*. It is still important to cover *NumPy* separately as *NumPy* arrays are very important building blocks in many Data Science applications!
 
 ## Objectives
 You will be able to: 
 
-* Know how to get started with NumPy 
-* Understand how and when to use a NumPy array 
-* Understand the performance benefits of a NumPy array 
+- Know how to get started with NumPy 
+- Understand how and when to use a NumPy array 
+- Understand the performance benefits of a NumPy array 
 
 ## Getting Started With NumPy
 
@@ -54,7 +54,7 @@ numpy_ndarr
 
 
 
-The benefits of using NumPy here will become more obvious in our math-heavier linear algebra / matrices sections!
+The benefits of using NumPy here will become more obvious in our math-heavier, linear algebra / matrices sections!
 
 ## Performing array operations
 
