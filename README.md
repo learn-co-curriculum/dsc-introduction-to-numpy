@@ -10,9 +10,9 @@ An important note: *Pandas* was actually built on top of *NumPy*! So many of the
 ## Objectives
 You will be able to: 
 
-- Know how to get started with NumPy 
-- Understand how and when to use a NumPy array 
-- Understand the performance benefits of a NumPy array 
+- Describe why NumPy is used at times over standard Python 
+- Instantiate a NumPy array with specified values 
+- Use broadcasting to perform a math operation on an entire NumPy array 
 
 ## Getting Started With NumPy
 
@@ -25,24 +25,24 @@ The conventional method to import NumPy is by aliasing it as `np`, like this:
 import numpy as np
 ```
 
-That was easy! Now we can use any functions from the NumPy library by simply typing `np.FUNCTION_NAME`. For example, if we wanted to create a NumPy array containing the values 1, 2, 3, and 4, we would write `np.array([1,2,3,4])`. Let's try it out below:
+That was easy! Now we can use any functions from the NumPy library by simply typing `np.function_name()`. For example, if we wanted to create a NumPy array containing the values 1, 2, 3, and 4, we would write `np.array([1,2,3,4])`. Let's try it out below:
 
 
 ```python
-numpy_arr = np.array([1,2,3,4])
-print("Here is a NumPy array:", numpy_arr)
-print("You know it is a NumPy array because its type is:", type(numpy_arr))
+numpy_arr = np.array([1, 2, 3, 4])
+print('Here is a NumPy array:', numpy_arr)
+print('You know it is a NumPy array because its type is:', type(numpy_arr))
 ```
 
     Here is a NumPy array: [1 2 3 4]
     You know it is a NumPy array because its type is: <class 'numpy.ndarray'>
 
 
-While we'll focus on one-dimensional arrays in this lecture, it is important to mention that NumPy is very famous for its multi-dimensional arrays, like:
+While we'll focus on one-dimensional arrays in this lesson, it is important to mention that NumPy is very famous for its multi-dimensional arrays, like:
 
 
 ```python
-numpy_ndarr = np.array([[1,2,3,4], [5,6,7,8]])
+numpy_ndarr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
 numpy_ndarr
 ```
 
@@ -58,7 +58,7 @@ The benefits of using NumPy here will become more obvious in our math-heavier, l
 
 ## Performing array operations
 
-So why would you want to use a NumPy array instead of a list? Because compared to a list, NumPy makes it very easy to perform array operations, like adding, multiplying, and otherwise operating on each element of the collection. Let's look at some examples.
+So why would you want to use a NumPy array instead of a list? Because compared to a list, NumPy makes it very easy to perform array operations, like adding, multiplying, and otherwise operating on each element of the array. 
 
 First, let's take a look at a simple example. We have a list of integers, and we want to add 3 to each element in the list. One might try the following:
 
@@ -69,7 +69,7 @@ list_of_integers = [0, 1, 2, 3]
 
 
 ```python
-# add 3 to each element
+# Add 3 to each element
 list_of_integers + 3
 ```
 
@@ -78,8 +78,8 @@ list_of_integers + 3
 
     TypeError                                 Traceback (most recent call last)
 
-    <ipython-input-5-39298e537b96> in <module>
-          1 # add 3 to each element
+    <ipython-input-5-9c3da9888927> in <module>
+          1 # Add 3 to each element
     ----> 2 list_of_integers + 3
     
 
@@ -90,7 +90,7 @@ You'll see that this doesn't work, because Python expects a list-like object. An
 
 
 ```python
-# add 3 to each element
+# Add 3 to each element
 list_of_integers + [3]
 ```
 
@@ -105,9 +105,9 @@ Let's see what happens if we convert our list to a *NumPy* array!
 
 
 ```python
-# convert to NumPy Array
+# Convert to NumPy Array
 array_of_integers = np.array(list_of_integers)
-# add 3
+# Add 3
 array_of_integers + 3
 ```
 
@@ -126,10 +126,10 @@ What if we had a friend who is trying to figure out the square footage of their 
 
 
 ```python
-lenghts_of_each_room = np.array([10, 12, 20, 5])
+lengths_of_each_room = np.array([10, 12, 20, 5])
 widths_of_each_room = np.array([13, 15, 16, 4])
-areas_of_each_room = lenghts_of_each_room * widths_of_each_room
-print ("Here is an array with the square footages for each room:", areas_of_each_room)
+areas_of_each_room = lengths_of_each_room * widths_of_each_room
+print ('Here is an array with the square footages for each room:', areas_of_each_room)
 ```
 
     Here is an array with the square footages for each room: [130 180 320  20]
@@ -147,10 +147,10 @@ Let's see an example of how we would perform this conversion with a Python list 
 
 
 ```python
-# average temps in NYC from January -> December (in fahrenheit)
+# Average temps in NYC from January -> December (in fahrenheit)
 nyc_avg_temps_f = [39, 42, 50, 62, 72, 80, 85, 84, 76, 65, 54, 44]
 
-# ----- without NumPy -----
+# ----- Without NumPy -----
 nyc_avg_temps_c = list(range(0,12))
 nyc_avg_temps_c[0] = (nyc_avg_temps_f[0] - 32) * (5/9)
 nyc_avg_temps_c[1] = (nyc_avg_temps_f[1] - 32) * (5/9)
@@ -166,17 +166,17 @@ nyc_avg_temps_c[10] = (nyc_avg_temps_f[10] - 32) * (5/9)
 nyc_avg_temps_c[11] = (nyc_avg_temps_f[11] - 32) * (5/9)
 # -------------------------
 
-# ------ WITH NumPy -------
+# ------ With NumPy -------
 np_nyc_avg_temps_f = np.array(nyc_avg_temps_f)
 np_nyc_avg_temps_c = (np_nyc_avg_temps_f - 32) * (5/9)
 # -------------------------
 
-print("1. Without NumPy:", nyc_avg_temps_c)
-print("2. WITH NumPy:", np_nyc_avg_temps_c)
+print('1. Without NumPy:', nyc_avg_temps_c)
+print('2. With NumPy:', np_nyc_avg_temps_c)
 ```
 
     1. Without NumPy: [3.8888888888888893, 5.555555555555555, 10.0, 16.666666666666668, 22.22222222222222, 26.666666666666668, 29.444444444444446, 28.88888888888889, 24.444444444444446, 18.333333333333336, 12.222222222222223, 6.666666666666667]
-    2. WITH NumPy: [ 3.88888889  5.55555556 10.         16.66666667 22.22222222 26.66666667
+    2. With NumPy: [ 3.88888889  5.55555556 10.         16.66666667 22.22222222 26.66666667
      29.44444444 28.88888889 24.44444444 18.33333333 12.22222222  6.66666667]
 
 
@@ -186,7 +186,7 @@ Let's break this down. Essentially the problem was to operate on each number in 
 
 Don't worry too much about how this is implemented behind the scenes. The key takeaway is that when we have large datasets that we want to operate on, NumPy can usually greatly simplify our code as well as make it more performant, which we will learn about later!
 
-## Performance Benefits of a NumPy Array
+## Performance Benefits of NumPy Arrays
 
 Another benefit to NumPy arrays, as we mentioned earlier, is that they use less memory and therefore make it easier for us to perform operations on them. However, this performance benefit is only really noticed when dealing with very large datasets. So, for now, the performance benefits of NumPy are purely educational, and we do not need to worry about them just yet. 
 
@@ -196,7 +196,7 @@ Let's take a look at an example. We will perform a simple operation on two sets 
 ```python
 import time
 
-# using 1 million integers
+# Using 1 million integers
 huge_list_of_integers = list(range(0, 1000000))
 huge_np_array_of_integers = np.array(huge_list_of_integers)
 
@@ -204,27 +204,27 @@ def add_one(list_of_ints):
     return [num + 1 for num in list_of_ints]
 
 
-start_time = time.perf_counter() # time when operation starts
-add_one(huge_list_of_integers) # adds 1 to each number in the list of integers above
-end_time = time.perf_counter() # time when operation finishes
-total_time = (end_time - start_time) # total time for operation
+start_time = time.perf_counter() # Time when operation starts
+add_one(huge_list_of_integers) # Adds 1 to each number in the list of integers above
+end_time = time.perf_counter() # Time when operation finishes
+total_time = (end_time - start_time) # Total time for operation
 
 
-start_time_with_np = time.perf_counter() # time when operation starts
-huge_np_array_of_integers + 1 # adds 1 to each number in the array of integers
-end_time_with_np = time.perf_counter() # time when operation finishes
-total_time_with_np = (end_time_with_np - start_time_with_np) # total time for operation
+start_time_with_np = time.perf_counter() # Time when operation starts
+huge_np_array_of_integers + 1 # Adds 1 to each number in the array of integers
+end_time_with_np = time.perf_counter() # Time when operation finishes
+total_time_with_np = (end_time_with_np - start_time_with_np) # Total time for operation
 
-print("Time it takes to add 1 to each element in a list WITHOUT NumPy:", total_time)
-print("Time it takes to add 1 to each element in a list WITH NumPy:", total_time_with_np)
+print('Time it takes to add 1 to each element in a list without NumPy:', total_time)
+print('Time it takes to add 1 to each element in a list with NumPy:', total_time_with_np)
 
 percent_faster = int((((total_time - total_time_with_np)/total_time)*100))
-print("NumPy completes the operation", percent_faster, "% faster than a traditional list")
+print('NumPy completes the operation', percent_faster, '% faster than a traditional list')
 ```
 
-    Time it takes to add 1 to each element in a list WITHOUT NumPy: 0.06499373700000177
-    Time it takes to add 1 to each element in a list WITH NumPy: 0.0036749559999975645
-    NumPy completes the operation 94 % faster than a traditional list
+    Time it takes to add 1 to each element in a list without NumPy: 0.061647489000002054
+    Time it takes to add 1 to each element in a list with NumPy: 0.002932601000001256
+    NumPy completes the operation 95 % faster than a traditional list
 
 
 ## Simulations with NumPy
